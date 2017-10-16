@@ -4,7 +4,7 @@
   "description": "A metalsmith plugin to temporarily process a subset of files with other plugins",
   "main": "select.js",
   "scripts": {
-    "test": "node test/test.js"
+    "test": "tap test/test.js --cov --coverage-report=lcov"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "filter"
   ],
   "devDependencies": {
-    "tape": "^4.6",
+    "tap": "^10.7",
     "coveralls" : "^3.0"
   },
   "author": "Morgan Conrad <flyingspaniel@gmail.com> (http://flyingspaniel.com/)",

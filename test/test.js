@@ -116,11 +116,13 @@ test('test multi', function(t) {
    )(files, mockMetalsmith, done)
      .thenUse(addAProperty('x', 'xx'))
      .thenUse(addAProperty('y', 'yy'))
+     .elseUse(addAProperty('z', 'zz'))
      .done();
 
    t.equal(files.file1.x, 'xx');
    t.equal(files.file1.y, 'yy');
-   t.false(files.file2.x)
+   t.false(files.file2.x);
+   t.true(files.file2.z);
    t.end();
 });
 

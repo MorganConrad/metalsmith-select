@@ -1,0 +1,29 @@
+{
+  "name": "metalsmith-select",
+  "version": "0.0.1",
+  "description": "A metalsmith plugin to temporarily process a subset of files with other plugins",
+  "main": "select.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorganConrad/metalsmith-select.git"
+  },
+  "keywords": [
+    "metalsmith",
+    "plugin",
+    "subset",
+    "if",
+    "filter"
+  ],
+  "devDependencies": {
+    "tape": "^4.6"
+  },
+  "author": "Morgan Conrad <flyingspaniel@gmail.com> (http://flyingspaniel.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MorganConrad/metalsmith-select/issues"
+  },
+  "homepage": "https://github.com/MorganConrad/metalsmith-select#readme"
+}

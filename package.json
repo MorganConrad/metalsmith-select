@@ -18,7 +18,8 @@
     "filter"
   ],
   "devDependencies": {
-    "tape": "^4.6"
+    "tape": "^4.6",
+    "coveralls" : "^3.0"
   },
   "author": "Morgan Conrad <flyingspaniel@gmail.com> (http://flyingspaniel.com/)",
   "license": "MIT",

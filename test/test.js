@@ -126,6 +126,20 @@ test('test multi', function(t) {
    t.end();
 });
 
+test('filename', function(t) {
+   var files = createFiles();
+   select({
+      __filename__: /.*1/
+   })(files, mockMetalsmith, done)
+     .thenUse(addAProperty())
+     .done();
+
+   t.true(files.file1.newKey);
+   t.false(files.file2.newKey);
+   t.end();
+});
+
+
 test('test error', function(t) {
    var files = createFiles();
 

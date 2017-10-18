@@ -2,9 +2,12 @@
 [![License](http://img.shields.io/badge/license-MIT-A31F34.svg)](https://github.com/MorganConrad/metalsmith-select)
 [![NPM Downloads](http://img.shields.io/npm/dm/metalsmith-select.svg)](https://www.npmjs.org/package/metalsmith-select)
 [![Known Vulnerabilities](https://snyk.io/test/github/morganconrad/metalsmith-select/badge.svg)](https://snyk.io/test/github/morganconrad/metalsmith-select)
+[![Coverage Status](https://coveralls.io/repos/github/MorganConrad/metalsmith-select/badge.svg)](https://coveralls.io/github/MorganConrad/metalsmith-select)
 
 # metalsmith-select
 Creates ("selects") a temporary subset of Metalsmith's filedata, on which you can use plugins.  Then call `done()` to return to normal flow with all files.  Useful if your plugins are very long, expensive, or conflicting.
+
+**Warning**: If the plugins add or remove "files", **this wil not work**.  It does work if they modify existing files, metalsmith, etc...
 
 Functional Programmers might think of this as "`filter().forEach()`", but, unlike modules like [metalsmith-filter](https://www.npmjs.com/package/metalsmith-filter) it does not permanently change the original files object.
 
@@ -32,7 +35,7 @@ Usually **options** is an object of key/testCriteria properties, e.g.
    key2: testCriteria2
 }
 ```
-For each property, `let valueToBeTested = fileData[key];`
+For each property, `let valueToBeTested = fileData[key];`  **Exception**: when the key is `__filename__`, use the filename.
 
 The selection test depends on testCriteria.
 <pre>
@@ -50,6 +53,8 @@ If **options** is a function, the selection criteria is `options(fileData, metal
 
 ### Notes, Todos, and Caveats
 
+Side Effect:  **select** adds a `__filename__` property to every file object.
+
 To simulate an OR, just `use(select())` twice:
 
 ```
@@ -59,6 +64,7 @@ use(select(options_left_half_of_OR))
   .thenUse(somePlugin(itsOptions))
 ```
 
+I haven't tested `select` all that much in practice, and it's doing tricky stuff, so beware.
 
 ### Examples
 

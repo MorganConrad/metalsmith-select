@@ -15,6 +15,7 @@ function select(options) {
       try {
          Object.keys(files).forEach(function(filePath) {
             var fileData = files[filePath];
+            fileData.__filename__ = filePath;
             var subset = selectFn(fileData, metalsmith) ? accepted : rejected;
             subset[filePath] = fileData;
          });

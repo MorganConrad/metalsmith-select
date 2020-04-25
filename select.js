@@ -5,18 +5,18 @@ module.exports = select;
 
 function select(options) {
 
-   var selectFn = computeSelectFn(options);
+   const selectFn = computeSelectFn(options);
 
    return function(files, metalsmith, realDone) {
 
-      var accepted = {};
-      var rejected = {};
+      const accepted = {};
+      const rejected = {};
 
       try {
          Object.keys(files).forEach(function(filePath) {
-            var fileData = files[filePath];
+            let fileData = files[filePath];
             fileData.__filename__ = filePath;
-            var subset = selectFn(fileData, metalsmith) ? accepted : rejected;
+            let subset = selectFn(fileData, metalsmith) ? accepted : rejected;
             subset[filePath] = fileData;
          });
 
